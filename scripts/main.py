@@ -14,7 +14,7 @@ clock = pygame.time.Clock()
 Icon = pygame.image.load("assets/images/Icon.png")
 pygame.display.set_icon(Icon)
 
-#added backgound music:
+#backgound music:
 bg_music = pygame.mixer.Sound("assets/audio/bgmusic.ogg")
 bg_music.play(loops=-1)
 
