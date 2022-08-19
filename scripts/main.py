@@ -18,16 +18,13 @@ pygame.display.set_icon(Icon)
 bg_music = pygame.mixer.Sound("assets/audio/bgmusic.ogg")
 bg_music.play(loops=-1)
 
-#all game loop logic to be updated every frame goes here:
-def updateFrames():
-    pass
-
 #game runtime controller:
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
-    updateFrames()
+    #all game loop logic to be updated every frame goes here:
+
     pygame.display.update()
     clock.tick(60)
