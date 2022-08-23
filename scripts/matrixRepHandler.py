@@ -12,7 +12,7 @@ matrix = [[1,0,0,0,0,0,0,0,0,0,0,0,0,0],
           [0,0,1,0,0,0,0,0,0,0,1,0,0,0],
           [0,0,1,0,0,0,0,0,0,0,1,0,0,0],
           [0,0,1,0,0,0,0,0,0,0,1,0,0,0],
-          [0,0,1,0,0,0,0,0,0,0,0,0,0,0],
+          [0,0,1,1,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -23,7 +23,7 @@ matrix = [[1,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
 #block settings (to be removed later):
 rectSurf = pygame.Surface((40,40))
-rectSurf.fill("Red")
+rectSurf.fill("#FF7F50")
 
 #matrix to represent the 
 def blitGrid(screen):
@@ -38,5 +38,5 @@ def updateMatrixToScreen(screen):
             if(matrix[i][j]==1):
                 x=(40*j)
                 y=(40*i)
-                rectSurf.fill("Red")
+                rectSurf.fill("#FF7F50")
                 screen.blit(rectSurf,(x,y))
