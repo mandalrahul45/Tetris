@@ -38,5 +38,5 @@ def updateMatrixToScreen(screen):
             if(matrix[i][j]==1):
                 x=(40*j)
                 y=(40*i)
-                rectSurf.fill("#FF7F50")
+                rectSurf.fill("#B22222")
                 screen.blit(rectSurf,(x,y))
