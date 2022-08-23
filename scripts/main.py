@@ -14,9 +14,10 @@ clock = pygame.time.Clock()
 Icon = pygame.image.load("assets/images/Icon.png")
 pygame.display.set_icon(Icon)
 
-#backgound music:
-bg_music = pygame.mixer.Sound("assets/audio/bgmusic.ogg")
-bg_music.play(loops=-1)
+#game opening music:
+pygame.mixer.music.load("assets/audio/omaewa.ogg")      
+pygame.mixer.music.set_endevent(pygame.USEREVENT)
+pygame.mixer.music.play() 
 
 #game runtime controller:
 while True:
@@ -24,6 +25,10 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
+        #backgound music, plays after the opening music has ended
+        if event.type == pygame.USEREVENT:
+            pygame.mixer.music.load("assets/audio/bgmusic.ogg")
+            pygame.mixer.music.play(-1)
     #all game loop logic to be updated every frame goes here:
 
     pygame.display.update()
