@@ -1,18 +1,19 @@
 import pygame
 
+blockCor=[3,5]
 #matrix to represent each cell of the display(screen)
-matrix = [[1,0,0,0,0,0,0,0,0,0,0,0,0,0],
-          [1,1,0,0,0,0,0,0,0,0,0,0,0,0],
+matrix = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-          [0,0,0,0,0,1,1,1,0,0,0,0,0,0],
-          [0,0,0,0,0,0,1,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-          [0,0,0,0,0,0,0,0,0,0,1,0,0,0],
-          [0,0,1,0,0,0,0,0,0,0,1,0,0,0],
-          [0,0,1,0,0,0,0,0,0,0,1,0,0,0],
-          [0,0,1,0,0,0,0,0,0,0,1,0,0,0],
-          [0,0,1,1,0,0,0,0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
           [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -33,6 +34,8 @@ def blitGrid(screen):
         pygame.draw.rect(screen,"White",pygame.Rect(0,y,560,1))
 
 def updateMatrixToScreen(screen):
+    matrix[blockCor[0]][blockCor[1]] = 1
+    
     for i in range(0,19):
         for j in range(0,14):
             if(matrix[i][j]==1):
@@ -40,3 +43,19 @@ def updateMatrixToScreen(screen):
                 y=(40*i)
                 rectSurf.fill("#B22222")
                 screen.blit(rectSurf,(x,y))
+                
+    matrix[blockCor[0]][blockCor[1]] = 0
+
+def moveBlockInMatrix(dir):
+    if(dir == "UP" and not blockCor[0]==0):
+        blockCor[0]=blockCor[0]-1
+
+    if(dir == "DOWN" and not blockCor[0]==18):
+        blockCor[0]=blockCor[0]+1
+
+    if(dir == "LEFT" and not blockCor[1]==0):
+        blockCor[1]=blockCor[1]-1
+
+    if(dir == "RIGHT" and not blockCor[1]==13):
+        blockCor[1]=blockCor[1]+1
+    

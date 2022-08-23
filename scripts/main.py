@@ -31,6 +31,16 @@ while True:
         if event.type == pygame.USEREVENT:
             pygame.mixer.music.load("assets/audio/bgmusic.ogg")
             pygame.mixer.music.play(-1)
+            
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_w:
+                moveBlockInMatrix("UP")
+            if event.key == pygame.K_a:
+                moveBlockInMatrix("LEFT")
+            if event.key == pygame.K_s:
+                moveBlockInMatrix("DOWN")
+            if event.key == pygame.K_d:
+                moveBlockInMatrix("RIGHT")
 
     #all game loop logic to be updated every frame goes here:
     screen.fill("black")
