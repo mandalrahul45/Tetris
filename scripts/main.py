@@ -1,10 +1,12 @@
 import pygame
 import sys
-
+from matrixRepHandler import *
 pygame.init()
 
 #inititlized the screen and set caption:
-screen = pygame.display.set_mode((600,770))
+WIDTH =560
+HEIGHT=760
+screen = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_caption("Tetris")
 
 #initialized the clock:
@@ -29,7 +31,11 @@ while True:
         if event.type == pygame.USEREVENT:
             pygame.mixer.music.load("assets/audio/bgmusic.ogg")
             pygame.mixer.music.play(-1)
+
     #all game loop logic to be updated every frame goes here:
+    screen.fill("black")
+    blitGrid(screen)
+    updateMatrixToScreen(screen)
 
     pygame.display.update()
     clock.tick(60)
