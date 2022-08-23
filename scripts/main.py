@@ -27,6 +27,10 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
+            # Pause button
+    
+       #if event.type == pygame.K_ESCAPE:
+
         #backgound music, plays after the opening music has ended
         if event.type == pygame.USEREVENT:
             pygame.mixer.music.load("assets/audio/bgmusic.ogg")
