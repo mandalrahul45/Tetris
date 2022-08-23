@@ -39,7 +39,7 @@ while True:
                 moveBlockInMatrix("LEFT")
             if event.key == pygame.K_s or event.key == pygame.K_DOWN:
                 moveBlockInMatrix("DOWN")
-            if event.key == pygame.K_d or event.key == pygame.K_d:
+            if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                 moveBlockInMatrix("RIGHT")
 
 
