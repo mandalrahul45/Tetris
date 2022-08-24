@@ -21,6 +21,8 @@ pygame.mixer.music.load("assets/audio/omaewa.ogg")
 pygame.mixer.music.set_endevent(pygame.USEREVENT)
 pygame.mixer.music.play() 
 
+updateBlocksToMatrix()
+
 #game runtime controller:
 while True:
     for event in pygame.event.get():
@@ -50,7 +52,9 @@ while True:
     #all game loop logic to be updated every frame goes here:
     screen.fill("black")
     blitGrid(screen)
+    
     updateMatrixToScreen(screen)
-
+    printMat()
+    print(blocksInMatrix[0].other_cordinates)
     pygame.display.update()
     clock.tick(60)
