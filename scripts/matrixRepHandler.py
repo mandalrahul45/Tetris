@@ -87,6 +87,5 @@ def moveBlockInMatrix(dir):
         blocksInMatrix[0].mj=blocksInMatrix[0].mj+1
 
     blocksInMatrix[0].updateOtherCordinates()
-    blocksInMatrix[0].updateLimits()
     updateBlocksToMatrix()
     
