@@ -1,7 +1,7 @@
 import pygame
 from Block import *
 
-current_Block=Iblock(0,1,"Red")
+current_Block=Iblock(0,1,"#45B8AC")
 
 #this is to represent all the blocks in the matrix
 #THE BLOCK AT 0th INDEX ALWAYS REPRESENT THE CURRENT BLOCK
