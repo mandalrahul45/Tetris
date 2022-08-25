@@ -15,15 +15,23 @@ class Block:
 class Iblock(Block):
      
     def __init__(self, mi, mj, color):
-         super().__init__(mi, mj, color)
-         self.updateOtherCordinates()
-    
+        super().__init__(mi, mj, color)
+        self.updateOtherCordinates()
+        self.updateLimits()
+        
+
     def updateOtherCordinates(self):
         toc = [[self.mi,self.mj],
                [self.mi+1,self.mj],
                [self.mi+2,self.mj],
                [self.mi+3,self.mj]]
         self.other_cordinates=toc    
+    
+    def updateLimits(self):
+        self.upLimit   =  self.other_cordinates[0][0]
+        self.downLimit = self.other_cordinates[3][0]
+        self.leftLimit = self.other_cordinates[0][1]
+        self.rightLimit = self.other_cordinates[0][1]
     
     
 
