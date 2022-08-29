@@ -27,6 +27,72 @@ class Block:
         self.downLimit  =   mi
         self.leftLimit  =   lj
         self.rightLimit =   mj
+    
+    # def canGoDown(self,blocksInMatrix):
+
+    #     hasBlock=False
+    #     for blk in blocksInMatrix[1:]:
+    #         for otc in blk.other_cordinates:
+    #             for otcOfSelf in self.other_cordinates:
+    #                 if otcOfSelf[0]+1==otc[0] and otc[1] == otcOfSelf[1]:
+    #                     hasBlock = True
+    #                     break
+        
+    #     return(not self.downLimit==18 and not hasBlock)
+    
+    # def canGoRight(self,blocksInMatrix):
+
+    #     hasBlock=False
+    #     for blk in blocksInMatrix[1:]:
+    #         for otc in blk.other_cordinates:
+    #             for otcOfSelf in self.other_cordinates:
+    #                 if otcOfSelf[1]+1==otc[1] and otc[0] == otcOfSelf[0]:
+    #                     hasBlock = True
+    #                     break
+        
+    #     return(not self.rightLimit==13 and not hasBlock)
+    
+    # def canGoLeft(self,blocksInMatrix):
+
+    #     hasBlock=False
+    #     for blk in blocksInMatrix[1:]:
+    #         for otc in blk.other_cordinates:
+    #             for otcOfSelf in self.other_cordinates:
+    #                 if otcOfSelf[1]-1==otc[1] and otc[0] == otcOfSelf[0]:
+    #                     hasBlock = True
+    #                     break
+        
+    #     return(not self.leftLimit==0 and not hasBlock)
+    
+
+    #This method(canMoveTo) checks if the current_Block can move to a particular direction:
+    def canMoveTo(self,dir,blocksInMatrix):
+
+        hasABlockToLeft=False
+        hasABlockToRight=False
+        hasABlockToDown=False
+        for blk in blocksInMatrix[1:]:
+            for otc in blk.other_cordinates:
+                for otcOfSelf in self.other_cordinates:
+
+                    if dir == "LEFT" and otcOfSelf[1]-1==otc[1] and otc[0] == otcOfSelf[0]:
+                        hasABlockToLeft = True
+
+                    if dir == "RIGHT" and otcOfSelf[1]+1==otc[1] and otc[0] == otcOfSelf[0]:
+                        hasABlockToRight = True
+
+                    if dir == "DOWN" and otcOfSelf[0]+1==otc[0] and otc[1] == otcOfSelf[1]:
+                        hasABlockToDown = True
+        
+        if dir == "LEFT":
+            return(not self.leftLimit==0 and not hasABlockToLeft)
+
+        elif dir == "RIGHT":
+            return(not self.rightLimit==13 and not hasABlockToRight)
+        
+        elif dir == "DOWN":
+            return(not self.downLimit==18 and not hasABlockToDown)
+
 
 class Iblock(Block):
      
