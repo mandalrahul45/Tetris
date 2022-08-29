@@ -21,6 +21,9 @@ pygame.mixer.music.load("assets/audio/omaewa.ogg")
 pygame.mixer.music.set_endevent(pygame.USEREVENT)
 pygame.mixer.music.play() 
 
+#to to play bgmusic :
+playBgMusic = True
+
 updateBlocksToMatrix()
 
 #setting a timer to make the current block fall after every 500 ms
@@ -36,7 +39,7 @@ while True:
        #if event.type == pygame.K_ESCAPE:
 
         #backgound music, plays after the opening music has ended
-        if event.type == pygame.USEREVENT:
+        if event.type == pygame.USEREVENT and playBgMusic:
             pygame.mixer.music.load("assets/audio/bgmusic.ogg")
             pygame.mixer.music.play(-1)
             

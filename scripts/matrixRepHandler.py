@@ -1,3 +1,4 @@
+from re import I
 import pygame
 from Block import *
 
@@ -6,6 +7,8 @@ current_Block=Iblock(0,1,"#45B8AC")
 #this is to represent all the blocks in the matrix
 #THE BLOCK AT 0th INDEX ALWAYS REPRESENT THE CURRENT BLOCK
 blocksInMatrix=[current_Block]
+
+blocksInMatrix.append(Iblock(15,6,"#45B8AC"))
 
 #current_Block is set to None to better redability and understanding of code
 current_Block=None
@@ -77,13 +80,13 @@ def moveBlockInMatrix(dir):
     # if(dir == "UP" and not blocksInMatrix[0].upLimit==0):
     #     blocksInMatrix[0].mi=blocksInMatrix[0].mi-1
 
-    if(dir == "DOWN" and not blocksInMatrix[0].downLimit==18):
+    if(dir == "DOWN" and blocksInMatrix[0].canMoveTo(dir,blocksInMatrix)):
         blocksInMatrix[0].mi=blocksInMatrix[0].mi+1
 
-    if(dir == "LEFT" and not blocksInMatrix[0].leftLimit==0):
+    if(dir == "LEFT" and blocksInMatrix[0].canMoveTo(dir,blocksInMatrix)):
         blocksInMatrix[0].mj=blocksInMatrix[0].mj-1
 
-    if(dir == "RIGHT" and not blocksInMatrix[0].rightLimit==13):
+    if(dir == "RIGHT" and blocksInMatrix[0].canMoveTo(dir,blocksInMatrix)):
         blocksInMatrix[0].mj=blocksInMatrix[0].mj+1
 
     blocksInMatrix[0].updateOtherCordinates()
