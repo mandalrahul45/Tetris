@@ -62,6 +62,7 @@ while True:
     blitGrid(screen)
     
     updateMatrixToScreen(screen)
+    reachedBotton()
     printMat()
     print(blocksInMatrix[0].other_cordinates)
     pygame.display.update()
