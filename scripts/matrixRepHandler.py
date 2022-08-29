@@ -2,7 +2,7 @@ from re import I
 import pygame
 from Block import *
 
-current_Block=Iblock(0,1,"#45B8AC")
+current_Block=Iblock(0,6,"#45B8AC")
 
 #this is to represent all the blocks in the matrix
 #THE BLOCK AT 0th INDEX ALWAYS REPRESENT THE CURRENT BLOCK
@@ -91,4 +91,15 @@ def moveBlockInMatrix(dir):
 
     blocksInMatrix[0].updateOtherCordinates()
     updateBlocksToMatrix()
-    
+
+
+
+def reachedBotton():
+    '''This method checks if the current block (blocksInMatrix[0]) 
+        has reached the bottom and spawns a new current block if so.'''
+
+    #TO DO:
+    #TO ADD RANDOM BLOCK AFTER CREATING ALL THE TYPES OF BLOCKS IN THE Block.py
+
+    if not blocksInMatrix[0].canMoveTo("DOWN",blocksInMatrix):
+        blocksInMatrix.insert(0,Iblock(0,6,"#45B8AC"))
