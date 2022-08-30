@@ -41,9 +41,7 @@ def initializeMatrix():
             matrix[i][j]=0
 
 
-#block settings (to be removed later):
 rectSurf = pygame.Surface((40,40))
-rectSurf.fill("#FF7F50")
 
 #to update the current_Block to the matrix:
 def updateBlocksToMatrix():
@@ -71,7 +69,7 @@ def updateMatrixToScreen(screen):
 def printMat():
     for i in range(0,19):
         for j in range(0,14):
-            print(matrix[i][j]," ",end="")
+            print(f"{matrix[i][j]:7}"," ",end="")
         print()
     print()
     print()
@@ -97,9 +95,6 @@ def moveBlockInMatrix(dir):
 def reachedBotton():
     '''This method checks if the current block (blocksInMatrix[0]) 
         has reached the bottom and spawns a new current block if so.'''
-
-    #TO DO:
-    #TO ADD RANDOM BLOCK AFTER CREATING ALL THE TYPES OF BLOCKS IN THE Block.py
 
     if not blocksInMatrix[0].canMoveTo("DOWN",blocksInMatrix):
         blocksInMatrix.insert(0,generateRandomBlock())
