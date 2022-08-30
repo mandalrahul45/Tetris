@@ -11,7 +11,18 @@ class Block:
         #other_cordinates  list will be holding the coordinates of single blocks component to form a block
         #they will be set by the blocks implementing the block class
         self.other_cordinates = None #expected to have list of lists
+        self.updateOtherCordinates()
+        self.updateLimits()
+
+    def updateOtherCordinates(self):
+        # toc = [[self.mi,self.mj],
+        #        [self.mi+1,self.mj],
+        #        [self.mi+2,self.mj],
+        #        [self.mi+3,self.mj]]
+        self.other_cordinates=eval(self.blockConfigString)    
+        self.updateLimits()
     
+
     #updateLimits sets or updates all the limits for all kinds of blocks which inherits this Block class
     def updateLimits(self):
         li,lj = 10e10,10e10
@@ -27,42 +38,6 @@ class Block:
         self.downLimit  =   mi
         self.leftLimit  =   lj
         self.rightLimit =   mj
-    
-    # def canGoDown(self,blocksInMatrix):
-
-    #     hasBlock=False
-    #     for blk in blocksInMatrix[1:]:
-    #         for otc in blk.other_cordinates:
-    #             for otcOfSelf in self.other_cordinates:
-    #                 if otcOfSelf[0]+1==otc[0] and otc[1] == otcOfSelf[1]:
-    #                     hasBlock = True
-    #                     break
-        
-    #     return(not self.downLimit==18 and not hasBlock)
-    
-    # def canGoRight(self,blocksInMatrix):
-
-    #     hasBlock=False
-    #     for blk in blocksInMatrix[1:]:
-    #         for otc in blk.other_cordinates:
-    #             for otcOfSelf in self.other_cordinates:
-    #                 if otcOfSelf[1]+1==otc[1] and otc[0] == otcOfSelf[0]:
-    #                     hasBlock = True
-    #                     break
-        
-    #     return(not self.rightLimit==13 and not hasBlock)
-    
-    # def canGoLeft(self,blocksInMatrix):
-
-    #     hasBlock=False
-    #     for blk in blocksInMatrix[1:]:
-    #         for otc in blk.other_cordinates:
-    #             for otcOfSelf in self.other_cordinates:
-    #                 if otcOfSelf[1]-1==otc[1] and otc[0] == otcOfSelf[0]:
-    #                     hasBlock = True
-    #                     break
-        
-    #     return(not self.leftLimit==0 and not hasBlock)
     
 
     #This method(canMoveTo) checks if the current_Block can move to a particular direction:
@@ -94,19 +69,79 @@ class Block:
             return(not self.downLimit==18 and not hasABlockToDown)
 
 
+
+# for refrence check: assets\images\blocksReference.png
+
 class Iblock(Block):
      
     def __init__(self, mi, mj, color):
+        self.blockConfigString = """[[self.mi,self.mj],
+                                    [self.mi+1,self.mj],
+                                    [self.mi+2,self.mj],
+                                    [self.mi+3,self.mj]]"""
+        
         super().__init__(mi, mj, color)
-        self.updateOtherCordinates()
-        self.updateLimits()
 
-    def updateOtherCordinates(self):
-        toc = [[self.mi,self.mj],
-               [self.mi+1,self.mj],
-               [self.mi+2,self.mj],
-               [self.mi+3,self.mj]]
-        self.other_cordinates=toc    
-        self.updateLimits()
-    
+class Zblock(Block):
+     
+    def __init__(self, mi, mj, color):
+        self.blockConfigString = """[[self.mi,self.mj],
+                                     [self.mi,self.mj-1],
+                                     [self.mi+1,self.mj],
+                                     [self.mi+1,self.mj+1]]"""
+        
+        super().__init__(mi, mj, color)
 
+class Sblock(Block):
+     
+    def __init__(self, mi, mj, color):
+        self.blockConfigString = """[[self.mi,self.mj],
+                                     [self.mi,self.mj+1],
+                                     [self.mi+1,self.mj],
+                                     [self.mi+1,self.mj-1]]"""
+        
+        super().__init__(mi, mj, color)
+
+
+class Tblock(Block):
+     
+    def __init__(self, mi, mj, color):
+        self.blockConfigString = """[[self.mi,self.mj],
+                                     [self.mi,self.mj+1],
+                                     [self.mi+1,self.mj],
+                                     [self.mi,self.mj-1]]"""
+        
+        super().__init__(mi, mj, color)
+
+
+class Oblock(Block):
+     
+    def __init__(self, mi, mj, color):
+        self.blockConfigString = """[[self.mi,self.mj],
+                                     [self.mi,self.mj+1],
+                                     [self.mi+1,self.mj],
+                                     [self.mi+1,self.mj+1]]"""
+        
+        super().__init__(mi, mj, color)
+
+
+class Lblock(Block):
+     
+    def __init__(self, mi, mj, color):
+        self.blockConfigString = """[[self.mi,self.mj],
+                                     [self.mi+1,self.mj],
+                                     [self.mi,self.mj+1],
+                                     [self.mi,self.mj+2]]"""
+        
+        super().__init__(mi, mj, color)
+
+
+class Jblock(Block):
+     
+    def __init__(self, mi, mj, color):
+        self.blockConfigString = """[[self.mi,self.mj],
+                                     [self.mi,self.mj+1],
+                                     [self.mi,self.mj+2],
+                                     [self.mi+1,self.mj+2]]"""
+        
+        super().__init__(mi, mj, color)
