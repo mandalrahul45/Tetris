@@ -28,7 +28,7 @@ playBgMusic = True
 updateBlocksToMatrix()
 
 #setting a timer to make the current block fall after every 500 ms
-pygame.time.set_timer(pygame.USEREVENT+1,500)
+pygame.time.set_timer(pygame.USEREVENT+1,400)
 #game runtime controller:
 while True:
     for event in pygame.event.get():
@@ -49,13 +49,19 @@ while True:
             #     moveBlockInMatrix("UP")
             if event.key == pygame.K_a or  event.key == pygame.K_LEFT:
                 moveBlockInMatrix("LEFT")
+                pygame.key.set_repeat(150)
+
             if event.key == pygame.K_s or event.key == pygame.K_DOWN:
                 moveBlockInMatrix("DOWN")
+                pygame.key.set_repeat(150)
+
             if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
                 moveBlockInMatrix("RIGHT")
+                pygame.key.set_repeat(150)
+
             
             #automatic gravity( ;) ):
-        elif event.type == pygame.USEREVENT+1:
+        if event.type == pygame.USEREVENT+1:
             moveBlockInMatrix("DOWN")
 
     #all game loop logic to be updated every frame goes here:
