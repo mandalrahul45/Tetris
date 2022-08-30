@@ -8,7 +8,7 @@ current_Block=Iblock(0,6,"#45B8AC")
 #THE BLOCK AT 0th INDEX ALWAYS REPRESENT THE CURRENT BLOCK
 blocksInMatrix=[current_Block]
 
-blocksInMatrix.append(Iblock(15,6,"#45B8AC"))
+# blocksInMatrix.append(Iblock(15,6,"#45B8AC"))
 
 #current_Block is set to None to better redability and understanding of code
 current_Block=None
@@ -102,4 +102,4 @@ def reachedBotton():
     #TO ADD RANDOM BLOCK AFTER CREATING ALL THE TYPES OF BLOCKS IN THE Block.py
 
     if not blocksInMatrix[0].canMoveTo("DOWN",blocksInMatrix):
-        blocksInMatrix.insert(0,Iblock(0,6,"#45B8AC"))
+        blocksInMatrix.insert(0,Jblock(0,6,"#45B8AC"))
