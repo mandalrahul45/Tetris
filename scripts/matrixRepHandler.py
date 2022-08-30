@@ -1,8 +1,9 @@
+import random
 from re import I
 import pygame
 from Block import *
 
-current_Block=Iblock(0,6,"#45B8AC")
+current_Block=Iblock(0,6)
 
 #this is to represent all the blocks in the matrix
 #THE BLOCK AT 0th INDEX ALWAYS REPRESENT THE CURRENT BLOCK
@@ -101,4 +102,9 @@ def reachedBotton():
     #TO ADD RANDOM BLOCK AFTER CREATING ALL THE TYPES OF BLOCKS IN THE Block.py
 
     if not blocksInMatrix[0].canMoveTo("DOWN",blocksInMatrix):
-        blocksInMatrix.insert(0,Jblock(0,6,"#45B8AC"))
+        blocksInMatrix.insert(0,generateRandomBlock())
+
+
+def generateRandomBlock():
+    blockNames = ['Iblock','Oblock','Tblock','Lblock','Jblock','Zblock','Sblock']
+    return(eval(f"{random.choice(blockNames)}(0,6)"))

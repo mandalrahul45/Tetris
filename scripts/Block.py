@@ -74,7 +74,7 @@ class Block:
 
 class Iblock(Block):
      
-    def __init__(self, mi, mj, color):
+    def __init__(self, mi, mj, color="#5b9bd5"):
         self.blockConfigString = """[[self.mi,self.mj],
                                     [self.mi+1,self.mj],
                                     [self.mi+2,self.mj],
@@ -84,7 +84,7 @@ class Iblock(Block):
 
 class Zblock(Block):
      
-    def __init__(self, mi, mj, color):
+    def __init__(self, mi, mj, color="#ff6600"):
         self.blockConfigString = """[[self.mi,self.mj],
                                      [self.mi,self.mj-1],
                                      [self.mi+1,self.mj],
@@ -94,7 +94,7 @@ class Zblock(Block):
 
 class Sblock(Block):
      
-    def __init__(self, mi, mj, color):
+    def __init__(self, mi, mj, color="#70ad47"):
         self.blockConfigString = """[[self.mi,self.mj],
                                      [self.mi,self.mj+1],
                                      [self.mi+1,self.mj],
@@ -105,7 +105,7 @@ class Sblock(Block):
 
 class Tblock(Block):
      
-    def __init__(self, mi, mj, color):
+    def __init__(self, mi, mj, color="#9933ff"):
         self.blockConfigString = """[[self.mi,self.mj],
                                      [self.mi,self.mj+1],
                                      [self.mi+1,self.mj],
@@ -116,7 +116,7 @@ class Tblock(Block):
 
 class Oblock(Block):
      
-    def __init__(self, mi, mj, color):
+    def __init__(self, mi, mj, color="#ffff66"):
         self.blockConfigString = """[[self.mi,self.mj],
                                      [self.mi,self.mj+1],
                                      [self.mi+1,self.mj],
@@ -127,7 +127,7 @@ class Oblock(Block):
 
 class Lblock(Block):
      
-    def __init__(self, mi, mj, color):
+    def __init__(self, mi, mj, color="#ffc000"):
         self.blockConfigString = """[[self.mi,self.mj],
                                      [self.mi+1,self.mj],
                                      [self.mi,self.mj+1],
@@ -138,7 +138,7 @@ class Lblock(Block):
 
 class Jblock(Block):
      
-    def __init__(self, mi, mj, color):
+    def __init__(self, mi, mj, color="#305496"):
         self.blockConfigString = """[[self.mi,self.mj],
                                      [self.mi,self.mj+1],
                                      [self.mi,self.mj+2],
