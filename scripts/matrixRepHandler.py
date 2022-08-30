@@ -75,7 +75,6 @@ def printMat():
     print()
     print()
 
-#TO DO: to set the restrictions for limits
 def moveBlockInMatrix(dir):
     # if(dir == "UP" and not blocksInMatrix[0].upLimit==0):
     #     blocksInMatrix[0].mi=blocksInMatrix[0].mi-1
