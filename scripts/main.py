@@ -61,11 +61,11 @@ while True:
     #all game loop logic to be updated every frame goes here:
     screen.fill("black")
     blitGrid(screen)
-    subtitle(screen=screen,text="You are already Dead",test_time=20)
     
     updateMatrixToScreen(screen)
     reachedBotton()
     printMat()
     print(blocksInMatrix[0].other_cordinates)
+    subtitle(screen=screen,text="You are already Dead",test_time=20)
     pygame.display.update()
     clock.tick(60)
