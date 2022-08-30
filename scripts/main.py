@@ -1,5 +1,6 @@
 import pygame
 import sys
+from Anime_Sub import subtitle
 from matrixRepHandler import *
 pygame.init()
 
@@ -60,6 +61,7 @@ while True:
     #all game loop logic to be updated every frame goes here:
     screen.fill("black")
     blitGrid(screen)
+    subtitle(screen=screen,text="You are already Dead",test_time=20)
     
     updateMatrixToScreen(screen)
     reachedBotton()
