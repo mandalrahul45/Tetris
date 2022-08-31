@@ -45,8 +45,10 @@ while True:
             pygame.mixer.music.play(-1)
             
         if event.type == pygame.KEYDOWN:
-            # if event.key == pygame.K_w or  event.key == pydgame.K_UP:
-            #     moveBlockInMatrix("UP")
+            if event.key == pygame.K_w or  event.key == pygame.K_UP or event.key == pygame.K_SPACE:
+                moveBlockInMatrix("UP")
+                pygame.key.set_repeat()
+
             if event.key == pygame.K_a or  event.key == pygame.K_LEFT:
                 moveBlockInMatrix("LEFT")
                 pygame.key.set_repeat(150)
