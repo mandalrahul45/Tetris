@@ -5,7 +5,7 @@ from Block import *
 
 
 def generateRandomBlock():
-    blockNames = ['Iblock','Oblock','Tblock','Lblock','Jblock','Zblock','Sblock']
+    blockNames = ['Iblock','Tblock']
     return(eval(f"{random.choice(blockNames)}(0,6)"))
 
 current_Block=generateRandomBlock()
@@ -80,8 +80,11 @@ def printMat():
     print()
 
 def moveBlockInMatrix(dir):
-    # if(dir == "UP" and not blocksInMatrix[0].upLimit==0):
-    #     blocksInMatrix[0].mi=blocksInMatrix[0].mi-1
+    # <<<<<<< VERY IMPORTANT >>>>>>>>>
+    ## TO DO: CHECK IF THE ROTATION IS POSSIBLE 
+    
+    if(dir == "UP"): # The block rotation is done using the moveBlockInMatrix(..) in order to comply with other updations
+        blocksInMatrix[0].rotateBlock()
 
     if(dir == "DOWN" and blocksInMatrix[0].canMoveTo(dir,blocksInMatrix)):
         blocksInMatrix[0].mi=blocksInMatrix[0].mi+1
