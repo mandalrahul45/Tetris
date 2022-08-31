@@ -5,7 +5,7 @@ from Block import *
 
 
 def generateRandomBlock():
-    blockNames = ['Iblock','Tblock']
+    blockNames = ['Iblock','Tblock','Zblock','Sblock','Oblock','Lblock','Jblock']
     return(eval(f"{random.choice(blockNames)}(0,6)"))
 
 current_Block=generateRandomBlock()
