@@ -135,7 +135,25 @@ class Zblock(Block):
      
     def __init__(self, mi, mj, color="#ff6600"):
         self.blockConfigStrings = list()
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi,self.mj-1],
+                                            [self.mi+1,self.mj],
+                                            [self.mi+1,self.mj+1]]""")
+
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi-1,self.mj],
+                                            [self.mi,self.mj-1],
+                                            [self.mi+1,self.mj-1]]""")
         
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi-1,self.mj],
+                                            [self.mi-1,self.mj-1],
+                                            [self.mi,self.mj+1]]""")
+        
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi,self.mj+1],
+                                            [self.mi-1,self.mj+1],
+                                            [self.mi+1,self.mj]]""")        
         
 
         super().__init__(mi, mj, color)
@@ -144,7 +162,26 @@ class Sblock(Block):
      
     def __init__(self, mi, mj, color="#70ad47"):
         self.blockConfigStrings = list()
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi,self.mj+1],
+                                            [self.mi+1,self.mj],
+                                            [self.mi+1,self.mj-1]]""")
 
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi,self.mj-1],
+                                            [self.mi-1,self.mj-1],
+                                            [self.mi+1,self.mj]]""")
+        
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi-1,self.mj],
+                                            [self.mi-1,self.mj+1],
+                                            [self.mi,self.mj-1]]""")
+        
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi,self.mj+1],
+                                            [self.mi-1,self.mj],
+                                            [self.mi+1,self.mj+1]]""")        
+        
         
         super().__init__(mi, mj, color)
 
@@ -155,6 +192,22 @@ class Oblock(Block):
      
     def __init__(self, mi, mj, color="#ffff66"):
         self.blockConfigStrings = list()
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi,self.mj+1],
+                                            [self.mi+1,self.mj],
+                                            [self.mi+1,self.mj+1]]""")
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi,self.mj+1],
+                                            [self.mi+1,self.mj],
+                                            [self.mi+1,self.mj+1]]""")
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi,self.mj+1],
+                                            [self.mi+1,self.mj],
+                                            [self.mi+1,self.mj+1]]""")
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi,self.mj+1],
+                                            [self.mi+1,self.mj],
+                                            [self.mi+1,self.mj+1]]""")                                                    
 
         super().__init__(mi, mj, color)
 
@@ -163,7 +216,22 @@ class Lblock(Block):
      
     def __init__(self, mi, mj, color="#ffc000"):
         self.blockConfigStrings = list()
-        
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi,self.mj+1],
+                                            [self.mi+1,self.mj],
+                                            [self.mi,self.mj+2]]""")  
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi+1,self.mj],
+                                            [self.mi,self.mj-1],
+                                            [self.mi+2,self.mj]]""") 
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi,self.mj-1],
+                                            [self.mi-1,self.mj],
+                                            [self.mi,self.mj-2]]""") 
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi-1,self.mj],
+                                            [self.mi,self.mj+1],
+                                            [self.mi-2,self.mj]]""")                                                   
         super().__init__(mi, mj, color)
 
 
@@ -171,5 +239,22 @@ class Jblock(Block):
      
     def __init__(self, mi, mj, color="#305496"):
         self.blockConfigStrings = list()
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi,self.mj-1],
+                                            [self.mi+1,self.mj],
+                                            [self.mi,self.mj-2]]""")
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi-1,self.mj],
+                                            [self.mi,self.mj-1],
+                                            [self.mi-2,self.mj]]""")
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi,self.mj+1],
+                                            [self.mi-1,self.mj],
+                                            [self.mi,self.mj+2]]""")
+        self.blockConfigStrings.append( """[[self.mi,self.mj],
+                                            [self.mi,self.mj+1],
+                                            [self.mi+1,self.mj],
+                                            [self.mi+2,self.mj]]""")
+
         
         super().__init__(mi, mj, color)
