@@ -76,4 +76,4 @@ while True:
     print(blocksInMatrix[0].other_cordinates)
     subtitle(screen=screen,text="You are already Dead",test_time=20)
     pygame.display.update()
-    clock.tick(60)
+    clock.tick(45)#too much time..... i reduced it
