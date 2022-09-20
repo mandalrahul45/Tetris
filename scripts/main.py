@@ -8,9 +8,9 @@ pygame.init()
 WIDTH =560
 HEIGHT=760
 screen = pygame.display.set_mode((WIDTH,HEIGHT))
-pygame.display.set_caption("Tetris")
+pygame.display.set_caption("Tetris")  
 
-#initialized the clock:
+ #initialized the clock:
 clock = pygame.time.Clock()
 
 #set the icon:
