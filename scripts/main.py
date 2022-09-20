@@ -30,6 +30,7 @@ updateBlocksToMatrix()
 #setting a timer to make the current block fall after every 500 ms
 pygame.time.set_timer(pygame.USEREVENT+1,400)
 #game runtime controller:
+c= 0
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -74,6 +75,9 @@ while True:
     reachedBotton()
     printMat()
     print(blocksInMatrix[0].other_cordinates)
-    subtitle(screen=screen,text="You are already Dead",test_time=20)
+    if(c<800):
+        subtitle(screen=screen,text="You are already Dead",test_time=20)
+        c= c+1
     pygame.display.update()
     clock.tick(60)
+    
