@@ -100,11 +100,41 @@ def moveBlockInMatrix(dir):
 
 
 
+def clearFullRows():
+    rows_cleared = 0
+    # Iterate from bottom to top
+    for row in range(18, -1, -1):
+        if all(matrix[row]):
+            rows_cleared += 1
+            # Row is full, delete it from blocks' coordinates
+            for blk in blocksInMatrix[1:]:
+                # Identify blocks with coordinates on this row and remove them
+                blk.other_cordinates = [otc for otc in blk.other_cordinates if otc[0] != row]
+                # Shift blocks above down
+                for otc in blk.other_cordinates:
+                    if otc[0] < row:
+                        otc[0] += 1
+                blk.updateLimits()
+    
+    # Remove any blocks that have no coordinates left
+    blocks_to_keep = [blocksInMatrix[0]] # always keep the current block
+    for blk in blocksInMatrix[1:]:
+        if blk.other_cordinates:
+            blocks_to_keep.append(blk)
+    
+    # Update blocksInMatrix in place to keep the same reference if needed elsewhere
+    blocksInMatrix.clear()
+    blocksInMatrix.extend(blocks_to_keep)
+    
+    if rows_cleared > 0:
+        updateBlocksToMatrix()
+
 def reachedBotton():
     '''This method checks if the current block (blocksInMatrix[0]) 
         has reached the bottom and spawns a new current block if so.'''
 
     if not blocksInMatrix[0].canMoveTo("DOWN",blocksInMatrix):
+        clearFullRows()
         blocksInMatrix.insert(0,generateRandomBlock())
 
 
